@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -32,7 +32,35 @@ const socials = [
   },
 ];
 
+
+const useScroll=()=>{
+  const [scrollUp, setScrollUp] = useState(true);
+  const prevScroll = useRef();
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      const scroll = window.pageYOffset;
+      let isScrollUp = prevScroll.current > window.pageYOffset;
+      scroll ===0 ? isScrollUp=true : isScrollUp
+      setScrollUp(isScrollUp)
+      console.log(prevScroll.current > window.pageYOffset);
+      prevScroll.current = window.pageYOffset;
+    }
+    window.addEventListener('scroll', handleScroll);
+    return()=>{
+      window.removeEventListener('scroll', handleScroll);
+    }
+  })
+  return {scrollUp}
+}
+
+
 const Header = () => {
+  const { scrollUp } = useScroll();
+
+  useEffect(()=>{
+    console.log(scrollUp)
+  }, [scrollUp])
+  
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -65,11 +93,21 @@ const Header = () => {
         >
           <nav>
             {/* Add social media links based on the `socials` data */}
-            <HStack
+            <HStack spacing={8}>
+            {
+              socials.map(social=>(
+                <a key={social.url} href={social.url}>
+                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                </a>
+              ))
+            }
+            </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>
+             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
+              <a href="#contact-me" onClick={handleClick("contactme")}>Contact Me</a>
+              <a href="#projects" onClick={handleClick("projects")}>Projects</a>
             </HStack>
           </nav>
         </HStack>
