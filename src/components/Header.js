@@ -6,29 +6,39 @@ import {
   faLinkedin,
   faMedium,
   faStackOverflow,
+  faInstagram,
+  faTwitter
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
   {
     icon: faEnvelope,
-    url: "mailto: hello@example.com",
+    url: "mailto: agniveshvapi@gmail.com",
   },
   {
     icon: faGithub,
-    url: "https://github.com",
+    url: "https://github.com/AgniveshChaubey",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/agniveshchaubey/",
   },
   {
-    icon: faMedium,
-    url: "https://medium.com",
+    icon: faTwitter,
+    url: "https://twitter.com/agnivesh_01",
   },
+  // {
+  //   icon: faMedium,
+  //   url: "https://medium.com",
+  // },
+  // {
+  //   icon: faStackOverflow,
+  //   url: "https://stackoverflow.com",
+  // },
   {
-    icon: faStackOverflow,
-    url: "https://stackoverflow.com",
+    icon: faInstagram,
+    url: "https://instagram.com/agnivesh.chaubey"
   },
 ];
 
