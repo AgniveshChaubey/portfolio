@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -15,10 +15,10 @@ import {
 import * as Yup from 'yup';
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
-import {useAlertContext} from "../context/alertContext";
+import { useAlertContext } from "../context/alertContext";
 
 const LandingSection = () => {
-  const {isLoading, response, submit} = useSubmit();
+  const { isLoading, response, submit } = useSubmit();
   const { onOpen } = useAlertContext();
 
   const formik = useFormik({
@@ -31,18 +31,18 @@ const LandingSection = () => {
     validationSchema: Yup.object({
       firstName: Yup.string().required("Required"),
       email: Yup.string().required("Required").email("Invalid email address"),
-      comment: Yup.string().required("Required").min(25,"Must be at least 25 characters")
+      comment: Yup.string().required("Required").min(25, "Must be at least 25 characters")
     }),
     onSubmit: (values) => {
       submit("", values);
     },
   });
 
-  useEffect(()=>{
-    if(response){
+  useEffect(() => {
+    if (response) {
       onOpen(response.type, response.message)
     }
-  },[response])
+  }, [response])
 
   return (
     <FullScreenSection
@@ -83,7 +83,7 @@ const LandingSection = () => {
               </FormControl>
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type" 
+                <Select id="type" name="type"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.type}

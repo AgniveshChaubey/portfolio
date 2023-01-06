@@ -6,12 +6,21 @@ import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
 import { AlertProvider } from "./context/alertContext";
 import Alert from "./components/Alert";
+import { extendTheme } from '@chakra-ui/react'
 
 function App() {
+  const theme = extendTheme({
+  fonts: {
+    heading: `'Share Tech Mono', monospace`,
+    body: `'Ubuntu Mono', monospace`,
+  },
+});
+
+
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <AlertProvider>
-        <main>
+        <main className="font-link">
           <Header />
           <LandingSection />
           <ProjectsSection />
