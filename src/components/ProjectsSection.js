@@ -1,39 +1,43 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, CardHeader, Heading } from "@chakra-ui/react";
 import Card from "./Card";
 
 const projects = [
   {
-    title: "React Space",
+    title: "Randon Quote Machine",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
-    getImageSrc: () => require("../images/photo1.jpg"),
+      "An interface that generates random motivating quotes, fetching data from remote API.",
+    getImageSrc: () => require("../images/photo2.png"),
+    link : 'https://agniveshchaubey.github.io/fcc-random-quote-machine'
   },
   {
-    title: "React Infinite Scroll",
+    title: "Markdown Previewer",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
+      "App that converts Markdown input to HTML optputs with the help of Marked linrary.",
+    getImageSrc: () => require("../images/photo1.png"),
+    link : 'https://agniveshchaubey.github.io/fcc-markdown-previewer'
   },
   {
-    title: "Photo Gallery",
+    title: "Drum Pad",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
-    getImageSrc: () => require("../images/photo3.jpg"),
+      "Drum app for entertainment purpose, that produces pleasent sound -by both touch and keyboard input.",
+    getImageSrc: () => require("../images/photo4.png"),
+    link : 'https://agniveshchaubey.github.io/fcc-drum-machine'
   },
   {
-    title: "Event planner",
+    title: "Tic Tac Toe",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
+      "Amazing game that stores the state of users and declares the winner at the end.",
+    getImageSrc: () => require("../images/photo3.png"),
+    link : 'https://agniveshchaubey.github.io/React-project1-tic-tac-toe-game'
   },
 ];
 
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#14532d"
+      backgroundColor="#145b2d"
       isDarkBackground
       p={8}
       alignItems="flex-start"
@@ -53,7 +57,9 @@ const ProjectsSection = () => {
             title={project.title}
             description={project.description}
             imageSrc={project.getImageSrc()}
-          />
+            link={project.link}
+          >
+          </Card>
         ))}
       </Box>
     </FullScreenSection>
