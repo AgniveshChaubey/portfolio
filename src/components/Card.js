@@ -25,7 +25,7 @@ const Card = ({ title, description, imageSrc, link }) => {
           <Text>{description}</Text>
           <HStack>
             <Link href={link}>
-              <Text>See more <FontAwesomeIcon icon={faArrowRight} size='1x' />
+              <Text color='blue'>Checkout Project <FontAwesomeIcon icon={faArrowRight} size='1x' />
               </Text>
             </Link>
           </HStack>

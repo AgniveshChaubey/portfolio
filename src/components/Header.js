@@ -4,8 +4,6 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
-  faMedium,
-  faStackOverflow,
   faInstagram,
   faTwitter
 } from "@fortawesome/free-brands-svg-icons";
@@ -28,14 +26,6 @@ const socials = [
     icon: faTwitter,
     url: "https://twitter.com/agnivesh_01",
   },
-  // {
-  //   icon: faMedium,
-  //   url: "https://medium.com",
-  // },
-  // {
-  //   icon: faStackOverflow,
-  //   url: "https://stackoverflow.com",
-  // },
   {
     icon: faInstagram,
     url: "https://instagram.com/agnivesh.chaubey"
@@ -83,7 +73,8 @@ const Header = () => {
   };
 
   return (
-    <Box zIndex={1}
+    <Box
+      zIndex={1}
       position="fixed"
       top={0}
       left={0}
@@ -107,7 +98,7 @@ const Header = () => {
             <HStack spacing={4}>
               {
                 socials.map(social => (
-                  <a key={social.url} href={social.url} target='_blank'>
+                  <a className="zoom" key={social.url} href={social.url} target='_blank'>
                     <FontAwesomeIcon icon={social.icon} size="2x" />
                   </a>
                 ))
@@ -117,8 +108,8 @@ const Header = () => {
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
-              <a href="#contact-me" onClick={handleClick("contactme")}>Contact Me</a>
-              <a href="#projects" onClick={handleClick("projects")}>Projects</a>
+              <a className="zoom" href="#projects" onClick={handleClick("projects")}>Projects</a>
+              <a className="zoom" href="#contact-me" onClick={handleClick("contactme")}>About Me</a>
             </HStack>
           </nav>
         </HStack>

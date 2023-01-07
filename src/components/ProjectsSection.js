@@ -38,7 +38,7 @@ const ProjectsSection = () => {
   return (
     <Box  maxWidth="auto">
     <FullScreenSection
-      backgroundColor="#145b2d"
+      backgroundColor="#838383"
       isDarkBackground
       p={8}
       alignItems="flex-start"
