@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Heading, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 
 const greeting = "HELLO, I AM AGNIVESH CHAUBEY!";
@@ -9,6 +9,7 @@ const bio2 = "(specialised in Bootstrap,React)";
 // Implement the UI for the LandingSection component according to the instructions.
 // Use a combination of Avatar, Heading and VStack components.
 const LandingSection = () => (
+  <Box  maxWidth="auto">
   <FullScreenSection
     justifyContent="center"
     alignItems="center"
@@ -23,6 +24,7 @@ const LandingSection = () => (
       <Heading fontSize={15}>{bio2}</Heading>
     </VStack>
   </FullScreenSection>
+  </Box>
 );
 
 export default LandingSection;

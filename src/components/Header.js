@@ -43,34 +43,34 @@ const socials = [
 ];
 
 
-const useScroll=()=>{
+const useScroll = () => {
   const [scrollUp, setScrollUp] = useState(true);
   const prevScroll = useRef();
-  useEffect(()=>{
-    const handleScroll = ()=>{
+  useEffect(() => {
+    const handleScroll = () => {
       const scroll = window.pageYOffset;
       let isScrollUp = prevScroll.current > window.pageYOffset;
-      scroll ===0 ? isScrollUp=true : isScrollUp
+      scroll === 0 ? isScrollUp = true : isScrollUp
       setScrollUp(isScrollUp)
       console.log(prevScroll.current > window.pageYOffset);
       prevScroll.current = window.pageYOffset;
     }
     window.addEventListener('scroll', handleScroll);
-    return()=>{
+    return () => {
       window.removeEventListener('scroll', handleScroll);
     }
   })
-  return {scrollUp}
+  return { scrollUp }
 }
 
 
 const Header = () => {
   const { scrollUp } = useScroll();
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(scrollUp)
   }, [scrollUp])
-  
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -83,7 +83,7 @@ const Header = () => {
   };
 
   return (
-    <Box
+    <Box zIndex={1}
       position="fixed"
       top={0}
       left={0}
@@ -92,9 +92,10 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
+      backgroundColor="black"
+      maxWidth="auto"
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
+      <Box color="white" margin="0 auto">
         <HStack
           px={16}
           py={4}
@@ -104,17 +105,17 @@ const Header = () => {
           <nav>
             {/* Add social media links based on the `socials` data */}
             <HStack spacing={4}>
-            {
-              socials.map(social=>(
-                <a key={social.url} href={social.url} target='_blank'>
-                  <FontAwesomeIcon icon={social.icon} size="2x" />
-                </a>
-              ))
-            }
+              {
+                socials.map(social => (
+                  <a key={social.url} href={social.url} target='_blank'>
+                    <FontAwesomeIcon icon={social.icon} size="2x" />
+                  </a>
+                ))
+              }
             </HStack>
           </nav>
           <nav>
-             <HStack spacing={8}>
+            <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
               <a href="#contact-me" onClick={handleClick("contactme")}>Contact Me</a>
               <a href="#projects" onClick={handleClick("projects")}>Projects</a>

@@ -36,6 +36,7 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
+    <Box  maxWidth="auto">
     <FullScreenSection
       backgroundColor="#145b2d"
       isDarkBackground
@@ -63,6 +64,7 @@ const ProjectsSection = () => {
         ))}
       </Box>
     </FullScreenSection>
+    </Box>
   );
 };
 
