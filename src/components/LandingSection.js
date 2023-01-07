@@ -3,7 +3,7 @@ import { Avatar, Box, Heading, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 
 const greeting = "HELLO, I AM AGNIVESH CHAUBEY!";
-const bio1 = "A focused web developer building the Frontend of components that leads to the success of overall Project!";
+const bio1 = "A focused web developer building the Frontend components that leads to the success of overall Project!";
 const bio2 = "(specialised in Bootstrap,React)";
 
 // Implement the UI for the LandingSection component according to the instructions.
