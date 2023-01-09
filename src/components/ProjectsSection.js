@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Markdown Previewer",
     description:
-      "App that converts Markdown input to HTML optputs with the help of Marked linrary.",
+      "App that converts Markdown input to HTML optputs with the help of Marked library.",
     getImageSrc: () => require("../images/photo1.png"),
     link : 'https://agniveshchaubey.github.io/fcc-markdown-previewer'
   },
@@ -31,6 +31,13 @@ const projects = [
       "Amazing game that stores the state of users and declares the winner at the end.",
     getImageSrc: () => require("../images/photo3.png"),
     link : 'https://agniveshchaubey.github.io/React-project1-tic-tac-toe-game'
+  },
+  {
+    title: "Calculator",
+    description:
+      "Calculator app that server basic mathematical calculations.",
+    getImageSrc: () => require("../images/photo5.png"),
+    link : 'https://agniveshchaubey.github.io/fcc-calculator'
   },
 ];
 
