@@ -4,7 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 
 const greeting = "HELLO, I AM AGNIVESH CHAUBEY!";
 const bio1 = "A focused web developer building the Frontend components that leads to the success of overall Project!";
-const bio2 = "(specialised in Bootstrap,React)";
+const bio2 = "(specialised in React.js, Chakra-UI, Bootstrap)";
 
 // Implement the UI for the LandingSection component according to the instructions.
 // Use a combination of Avatar, Heading and VStack components.
