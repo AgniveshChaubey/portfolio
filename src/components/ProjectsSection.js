@@ -5,6 +5,13 @@ import Card from "./Card";
 
 const projects = [
   {
+    title: "Budget Tracker App",
+    description:
+      "Track and manage your expenses with ease using our intuitive budget tracker app.",
+    getImageSrc: () => require("../images/photo6.png"),
+    link : 'https://lets-track-it.netlify.app'
+  },
+  {
     title: "Randon Quote Machine",
     description:
       "An interface that generates random motivating quotes, fetching data from remote API.",
