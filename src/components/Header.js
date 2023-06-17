@@ -7,7 +7,8 @@ import {
   faInstagram,
   faTwitter
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, Link } from "@chakra-ui/react";
+import Banner from "./Banner";
 
 const socials = [
   {
@@ -32,7 +33,6 @@ const socials = [
   },
 ];
 
-
 const useScroll = () => {
   const [scrollUp, setScrollUp] = useState(true);
   const prevScroll = useRef();
@@ -42,7 +42,6 @@ const useScroll = () => {
       let isScrollUp = prevScroll.current > window.pageYOffset;
       scroll === 0 ? isScrollUp = true : isScrollUp
       setScrollUp(isScrollUp)
-      console.log(prevScroll.current > window.pageYOffset);
       prevScroll.current = window.pageYOffset;
     }
     window.addEventListener('scroll', handleScroll);
@@ -53,12 +52,10 @@ const useScroll = () => {
   return { scrollUp }
 }
 
-
 const Header = () => {
   const { scrollUp } = useScroll();
 
   useEffect(() => {
-    console.log(scrollUp)
   }, [scrollUp])
 
   const handleClick = (anchor) => () => {
@@ -73,6 +70,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <Box
       zIndex={1}
       position="fixed"
@@ -94,20 +92,16 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            {/* Add social media links based on the `socials` data */}
             <HStack spacing={4}>
-              {
-                socials.map(social => (
-                  <a className="zoom" key={social.url} href={social.url} target='_blank'>
-                    <FontAwesomeIcon icon={social.icon} size="2x" />
-                  </a>
-                ))
-              }
+              {socials.map(social => (
+                <a className="zoom" key={social.url} href={social.url} target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                </a>
+              ))}
             </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
               <a className="zoom" href="#projects" onClick={handleClick("projects")}>Projects</a>
               <a className="zoom" href="#contact-me" onClick={handleClick("contactme")}>About Me</a>
             </HStack>
@@ -115,6 +109,32 @@ const Header = () => {
         </HStack>
       </Box>
     </Box>
+    <Box
+        mt="66px"
+        backgroundColor="yellow"
+        color="black"
+        p={2}
+        textAlign="center"
+        border="5px solid red"
+      >
+        <>
+          {" "}
+            <Link
+              href="https://agnivesh.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+          This website is outdated! Please visit{" "}
+          <span>
+            {" "}
+             <b> https://agnivesh.netlify.app</b>{" "}
+          </span>{" "}
+          for the latest one.{" "}
+            </Link>
+        </>
+      </Box>
+    </>
   );
 };
+
 export default Header;
